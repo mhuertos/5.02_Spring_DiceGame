@@ -1,10 +1,7 @@
 package com.itAcademy.DiceGame.service;
 
 import java.util.List;
-import java.util.Optional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,13 +33,10 @@ public class ThrownService {
 		}
 	}
 	
-	
 	//listo
 	public List<Thrown> getThrowns(Player player) {
 		return thrownRepository.findAllByPlayer(player);
 	}
-
-
 
 	public double calcWinRate(Player player) {
 		double numPartidas = thrownRepository.countByPlayer(player);

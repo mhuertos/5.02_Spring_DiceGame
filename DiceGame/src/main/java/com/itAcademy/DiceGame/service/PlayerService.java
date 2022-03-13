@@ -1,13 +1,11 @@
 package com.itAcademy.DiceGame.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.itAcademy.DiceGame.entity.Player;
-import com.itAcademy.DiceGame.entity.Thrown;
 import com.itAcademy.DiceGame.repository.PlayerRepository;
 
 @Service
@@ -32,7 +30,6 @@ public class PlayerService {
 			Player player = new Player(name);
 			playerRepository.save(player);
 		}
-		
 	}
 	
 	
@@ -90,11 +87,4 @@ public class PlayerService {
 		}
 		return players.get(winnerPosition);
 	}
-
-
-	
-
-
-	
-	
 }
