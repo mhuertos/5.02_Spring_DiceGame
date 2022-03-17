@@ -18,7 +18,7 @@ public class PlayerService {
 	PlayerRepository playerRepository;
 	
 	@Autowired
-	MongoOperations mongoOperations;
+	//MongoOperations mongoOperations;
 
 	public void addPlayer(String name) {
 		if(checkPlayerNameExistance(name)) {

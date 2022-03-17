@@ -1,21 +1,18 @@
-package com.itAcademy.DiceGame.service;
+package com.itAcademy.diceGame_jwt.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.itAcademy.DiceGame.entity.Player;
-import com.itAcademy.DiceGame.repository.PlayerRepository;
+import com.itAcademy.diceGame_jwt.entity.Player;
+import com.itAcademy.diceGame_jwt.repository.PlayerRepository;
 
 @Service
 public class PlayerService {
 	
 	@Autowired
 	PlayerRepository playerRepository;
-	
-	@Autowired 
-	ThrownService thrownService;
 
 	public List<Player> getPlayers() {
 		List<Player> players = playerRepository.findAll();
@@ -66,15 +63,6 @@ public class PlayerService {
 		}else {
 			player.setName(newName);
 		}
-	}
-	
-	@Transactional
-	public List<Player> getRanking(){
-		List<Player> players = getPlayers();
-		for(int i = 0; i < players.size(); i++) {
-			players.get(i).setWinningRate(thrownService.calcWinRate(players.get(i)));
-		}
-		return playerRepository.findByOrderByWinningRateDesc();
 	}
 
 

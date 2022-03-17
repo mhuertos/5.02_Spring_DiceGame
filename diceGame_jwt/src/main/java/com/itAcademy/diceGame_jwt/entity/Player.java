@@ -1,6 +1,7 @@
-package com.itAcademy.DiceGame.entity;
+package com.itAcademy.diceGame_jwt.entity;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -11,6 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name="players")
@@ -27,7 +31,6 @@ public class Player {
 	private Date registration_date = new Date();
 	
 	private double winningRate;
-	
 	
 	@OneToMany(mappedBy="player")
 	private List<Thrown> throwings = new ArrayList<Thrown>();
@@ -66,9 +69,9 @@ public class Player {
 	}
 	
 	
-	public List<Thrown> getThrowings() {
+	/*public List<Thrown> getThrowings() {
 		return throwings;
-	}
+	}*/
 
 	public void setThrowings(List<Thrown> throwings) {
 		this.throwings = throwings;
@@ -87,6 +90,7 @@ public class Player {
 	public String toString() {
 		return "Player [idPlayer=" + idPlayer + ", name=" + name + ", registration_date=" + registration_date + "]";
 	}
+
 	
 	
 }

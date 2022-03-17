@@ -1,4 +1,4 @@
-package com.itAcademy.DiceGame.entity;
+package com.itAcademy.diceGame_jwt.entity;
 
 import java.util.Date;
 
@@ -34,7 +34,6 @@ public class Thrown {
 	@Column
 	private Date throwing_date = new Date();
 	
-	
 	@ManyToOne
 	@JoinColumn(name = "idPlayer", nullable = false)
 	private Player player;
@@ -44,13 +43,13 @@ public class Thrown {
 	
 	public Thrown(Player player) {
 		this.player = player;
-		this.diceOneResult = Dice.diceRoll();
-		this.diceTwoResult = Dice.diceRoll();
-		this.result = diceOneResult + diceTwoResult;
+		diceOneResult = Dice.diceRoll();
+		diceTwoResult = Dice.diceRoll();
+		result = diceOneResult + diceTwoResult;
 		if(result == 7) {
-			this.winning = true;
+			winning = true;
 		}else {
-			this.winning = false;
+			winning = false;
 		}
 	}
 

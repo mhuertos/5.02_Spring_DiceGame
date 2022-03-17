@@ -1,4 +1,4 @@
-package com.itAcademy.DiceGame.service;
+package com.itAcademy.diceGame_jwt.service;
 
 import java.util.List;
 
@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.itAcademy.DiceGame.entity.Player;
-import com.itAcademy.DiceGame.entity.Thrown;
-import com.itAcademy.DiceGame.repository.ThrownRepository;
+import com.itAcademy.diceGame_jwt.entity.Player;
+import com.itAcademy.diceGame_jwt.entity.Thrown;
+import com.itAcademy.diceGame_jwt.repository.ThrownRepository;
 
 @Service
 public class ThrownService {
@@ -40,7 +40,7 @@ public class ThrownService {
 
 	public double calcWinRate(Player player) {
 		double numPartidas = thrownRepository.countByPlayer(player);
-		double numPartidasGanadas = thrownRepository.countAllByWinningAndPlayer(true, player);
+		double numPartidasGanadas = thrownRepository.countGanadas(player);
 		return (numPartidasGanadas/numPartidas) * 100;
 	}
 	
